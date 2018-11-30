@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [![Build Status](http://runbot.odoo.com/runbot/badge/flat/1/11.0.svg)](http://runbot.odoo.com/runbot)
 [![Tech Doc](http://img.shields.io/badge/11.0-docs-875A7B.svg?style=flat&colorA=8F8F8F)](http://www.odoo.com/documentation/11.0)
 [![Help](http://img.shields.io/badge/11.0-help-875A7B.svg?style=flat&colorA=8F8F8F)](https://www.odoo.com/forum/help-1)
@@ -31,3 +32,7 @@ For a standard installation please follow the <a href="https://www.odoo.com/docu
 from the documentation.
 
 Then follow <a href="https://www.odoo.com/documentation/11.0/tutorials.html">the developer tutorials</a>
+=======
+# sunfire 
+customizations
+>>>>>>> 700a3a15f19aa24b3c24415e2b915897e7bfeaa8
