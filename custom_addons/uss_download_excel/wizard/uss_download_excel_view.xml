@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="view_uss_download_excel" model="ir.ui.view">
+            <field name="name">Download Excel</field>
+            <field name="model">uss.download.excel</field>
+            <field name="arch" type="xml">
+                <form string="Excel Download">
+					<hr colspan="8"/>
+                    <footer>
+                        <button name="uss_excel_report" string="Download Excel Sheet" type="object"
+                            class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_view_uss_download_excel" model="ir.actions.act_window">
+            <field name="name">Download Excel Wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">uss.download.excel</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+			<field name="view_id" ref="view_uss_download_excel"/>
+            <field name="target">new</field>
+        </record>
+				
+       <record id="wizard_excel_report" model="ir.ui.view">
+			<field name="name">wizard.excel.report</field>
+			<field name="model">wizard.excel.report</field>
+			<field name="arch" type="xml">
+				<form string="Sample Excel Sheet">
+					<group>
+						<field name="name" invisible="1"/>
+						<h1>
+							<field name="report" filename="name"/>
+						</h1>
+					</group>
+					<footer>
+						<button special="cancel" string="_Close" class="oe_link"/>
+					</footer>
+				</form>
+			</field>
+		</record>
+	
+        <menuitem id="uss_download_excel_report" name="Download Excel Report"
+            action="action_view_uss_download_excel"  sequence="30"/>
+</odoo>

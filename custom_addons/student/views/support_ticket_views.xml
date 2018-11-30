@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <menuitem id="sunfire_support.support_ticket_menu" name="Website Support Tickets" 
+    parent="sunfire_support.support_parent_menu" action="sunfire_support.support_ticket_action" sequence="1"/>
+    </data>
+    </odoo>

@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_pdf_css" name="Custom Report CSS" inherit_id="web.report_assets_common">
+        <xpath expr="." position="inside">
+            <link href="/Quotation_Report/static/src/css/custom.css" rel="stylesheet"/>
+        </xpath>
+    </template>
+    <template id="report_OPF">
+        <t t-call="web.external_layout_boxedOpf">
+            <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})" />
+            <br/>
+            <div class="page">
+                <div class="oe_structure"/>
+                <center>
+                    <h3>Order Processing Form</h3>
+                </center>
+                <hr/>
+                <div class="row">
+
+
+                    <table style="border: none;width:100%">
+                        <tr>
+                            <td style="border: none;">
+
+                                OPF No.
+
+                            </td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;">
+                                <strong t-field="doc.opf_name"/>
+                            </td>
+                            <td style="border: none;">Account Manager</td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;">
+                                <strong t-field="doc.user_id"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">
+                                OPF Dt.
+                            </td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;">
+                                <strong t-field="doc.date_order" t-field-options='{"format":"dd-MMM-yyyy"}'/>
+                            </td>
+                            <td style="border: none;">Pre Sales</td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;">
+                                <strong t-field="doc.pre_sale_engaged"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td style="border: none;">
+                                OPF Type
+                            </td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;">
+                                <strong t-field="doc.pricelist_id"/>
+                            </td>
+                            <td style="border: none;">ORN</td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;">
+                                <strong t-field="doc.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">
+                                Billing From
+                            </td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;">
+                                <strong t-field="doc.vendor_id.name"/>
+                            </td>
+                            <td style="border: none;"/>
+                            <td style="border: none;"/>
+                            <td style="border: none;background-color:white;"/>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">
+                                Billing Location
+                            </td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;">
+                                <strong t-field="doc.billing_location"/>
+                            </td>
+                            <td style="border: none;"/>
+                            <td style="border: none;"/>
+                            <td style="border: none;background-color:white;"/>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">
+                                Customer Name
+                            </td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;">
+                                <strong t-field="doc.partner_id.name"/>
+                            </td>
+                            <td style="border: none;"/>
+                            <td style="border: none;"/>
+                            <td style="border: none;background-color:white;"/>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">
+                                Concern Person
+                            </td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;">
+                                <strong t-field="doc.concern_person"/>
+                            </td>
+                            <td style="border: none;">Mobile No</td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;">
+                                <strong t-field="doc.partner_id.phone"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">
+                                Email id
+                            </td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;">
+                                <strong t-field="doc.partner_id.email"/>
+                            </td>
+                            <td style="border: none;"/>
+                            <td style="border: none;"/>
+                            <td style="border: none;background-color:white;"/>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">
+                                Billing Address
+                            </td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;" colspan="3">
+
+
+                                <strong t-field="doc.partner_invoice_id.street"/>
+                                <strong t-field="doc.partner_invoice_id.street2"/>
+                                <strong t-field="doc.partner_invoice_id.city"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">
+                                Shipping Address
+                            </td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;" colspan="3">
+                                <strong t-field="doc.partner_shipping_id.street"/>
+                                <strong t-field="doc.partner_shipping_id.street2"/>
+                                <strong t-field="doc.partner_shipping_id.city"/>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td style="border: none;">
+                                Corporate Address
+                            </td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;" colspan="3">
+                                <strong t-field="doc.partner_id.street"/>
+                                <strong t-field="doc.partner_id.street2"/>
+                                <strong t-field="doc.partner_id.city"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">
+                                Customer PO and Dt
+                            </td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;">
+                                <strong t-field="doc.client_order_ref"/>
+                            </td>
+                            <td style="border: none;">GST No.</td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;">
+                                <strong t-field="doc.partner_id.vat"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">
+                                Credit Terms
+                            </td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;">
+                                <strong t-field="doc.payment_term_id"/>
+                            </td>
+                            <td style="border: none;"/>
+                            <td style="border: none;"/>
+                            <td style="border: none;background-color:white;"/>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">
+                                Delivery Instructions
+                            </td>
+                            <td style="border: none;">:</td>
+                            <td style="border: none;background-color:white;">
+                                <strong t-field="doc.delivery_terms"/>
+                            </td>
+                            <td style="border: none;"/>
+                            <td style="border: none;"/>
+                            <td style="border: none;background-color:white;"/>
+                        </tr>
+                    </table>
+                    <hr/>
+                </div>
+                <!-- Is there a discount on at least one line? -->
+                <t t-set="display_discount" t-value="any([l.discount for l in doc.order_line])"/>
+                <t t-foreach="doc.order_lines_layouted()" t-as="page">
+                    <table class="table table-condensed">
+                        <t t-set="total_buy" t-value="0"/>
+                        <t t-set="total_sell" t-value="0"/>
+                        <thead>
+                            <tr>
+                                <th colspan="9" style="text-transform: capitalize;">
+                                    <center>Product/Renewal Sales</center>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th style="text-transform: capitalize;text-align: center;">HSN/SAC Code</th>
+                                <th style="text-transform: capitalize;text-align: center;">Part No</th>
+                                <th style="text-transform: capitalize;text-align: center;">Description</th>
+                                <th class="text-right" style="text-transform: capitalize;text-align: center;">Qty.</th>
+                                <th style="text-transform: capitalize;text-align: center;">Taxes Extra %</th>
+                                <th class="text-right" style="text-transform: capitalize;text-align: center;">Selling Price per unit</th>
+                                <th class="text-right" style="text-transform: capitalize;text-align: center;">Total Selling Price</th>
+                                <th class="text-right" style="text-transform: capitalize;text-align: center;">Buying Price per unit</th>
+                                <th class="text-right" style="text-transform: capitalize;text-align: center;">Total Buying Price</th>
+                            </tr>
+                        </thead>
+                        <tbody class="sale_tbody">
+                            <t t-foreach="page" t-as="layout_category">
+
+                                <t t-if="layout_category_size > 1 or page_size > 1" groups="sale.group_sale_layout">
+                                    <t t-if="layout_category['name'] not in ['Services']">
+                                        <!-- <tr class="active">
+                                        <td colspan="9" style="font-weight: bold; border-bottom: 1px solid black;">
+                                            &amp;bull;
+                                            <t t-esc="layout_category['name']"/>
+                                        </td>
+                                    </tr> -->
+                                    </t>
+                                </t>
+
+                                <!-- Lines associated -->
+                                <t t-foreach="layout_category['lines']" t-as="l">
+                                    <t t-if="l.product_id.type not in ['service']">
+                                        <tr>
+                                            <td>
+                                                <span t-field="l.l10n_in_hsn_code"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="l.product_id.name"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="l.product_id.description_sale"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-field="l.product_uom_qty"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="', '.join(map(lambda x: (x.description or x.name), l.tax_id))"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-field="l.price_unit"/>
+                                            </td>
+                                            <td class="text-right" groups="sale.group_show_price_subtotal">
+                                                <span t-field="l.price_subtotal"
+                                                    t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-field="l.purchase_price"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-set="total" t-value="l.product_uom_qty * l.purchase_price"/>
+                                                <span t-esc="total" />
+                                            </td>
+                                            <t t-foreach="layout_category['lines']" t-as="l">
+                                                <t t-if="l.product_id.type not in ['service']">
+                                                    <t t-set="total_sell" t-value="total_sell+l.purchase_price"/>
+                                                </t>
+                                            </t>
+
+                                            <t t-foreach="layout_category['lines']" t-as="l">
+                                                <t t-if="l.product_id.type not in ['service']">
+                                                    <t t-set="total_buy" t-value="total_buy+l.price_subtotal"/>
+                                                </t>
+                                            </t>
+                                        </tr>
+
+                                        <!-- <t t-if="(layout_category_size > 1 or page_size > 1) and layout_category['subtotal']" groups="sale.group_sale_layout">
+                                            <tr class="text-right">
+                                                <td colspan="9">
+                                                    <strong>Subtotal:</strong>
+                                                    <t t-set="subtotal" t-value="sum(l.price_subtotal)"/>
+                                                    <span t-esc="subtotal" t-options="{'widget': 'monetary', 'display_currency': doc.pricelist_id.currency_id}"/>
+                                                </td>
+                                            </tr>
+                                        </t> -->
+                                    </t>
+
+                                </t>
+
+
+                            </t>
+                            <tr>
+                                <td style="border-top: 1px solid;" colspan="5">
+
+                                </td>
+                                <td class="text-right" style="border-top: 1px solid;">
+                                    <span>Total Cost</span>
+                                </td>
+                                <td class="text-right" style="border-top: 1px solid;">
+
+
+                                    <span t-esc="total_sell"/>
+                                </td>
+                                <td class="text-right" style="border-top: 1px solid;">
+
+                                </td>
+                                <td class="text-right" style="border-top: 1px solid;">
+
+                                    <span t-esc="total_buy"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <t t-if="page_index &lt; page_size - 1" groups="sale.group_sale_layout">
+                        <p style="page-break-before:always;"/>
+                    </t>
+
+                    <t t-foreach="doc.order_lines_layouted()" t-as="page">
+                        <table class="table table-condensed">
+                            <t t-set="total_sbuy" t-value="0"/>
+                            <t t-set="total_ssell" t-value="0"/>
+                            <thead>
+                                <tr>
+                                    <th colspan="7" style="text-transform: capitalize;">
+                                        <center>Sunfire Services</center>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th style="text-transform: capitalize;text-align: center;">HSN/SAC Code</th>
+                                    <th style="text-transform: capitalize;text-align: center;">Description</th>
+                                    <th style="text-transform: capitalize;text-align: center;">Taxes Extra %</th>
+                                    <th class="text-right" style="text-transform: capitalize;text-align: center;">Selling Price per unit</th>
+                                    <th class="text-right" style="text-transform: capitalize;text-align: center;">Total Selling Price</th>
+                                    <th class="text-right" style="text-transform: capitalize;text-align: center;">Buying Price per unit</th>
+                                    <th class="text-right" style="text-transform: capitalize;text-align: center;">Total Buying Price</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="sale_tbody">
+
+
+                                <t t-foreach="page" t-as="layout_category">
+                                    <t t-if="layout_category['name'] in ['Services']">
+                                        <t t-if="layout_category_size > 1 or page_size > 1" groups="sale.group_sale_layout">
+                                            <!-- <tr class="active">
+                                                <td colspan="7" style="font-weight: bold; border-bottom: 1px solid black;">
+                                                    &amp;bull;
+                                                    <t t-esc="layout_category['name']"/>
+                                                </td>
+                                            </tr> -->
+                                        </t>
+                                    </t>
+                                    <!-- Lines associated -->
+                                    <t t-foreach="layout_category['lines']" t-as="l">
+                                        <t t-if="l.product_id.type in ['service']">
+                                            <tr>
+                                                <td>
+                                                    <span t-field="l.l10n_in_hsn_code"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="l.name"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="', '.join(map(lambda x: (x.description or x.name), l.tax_id))"/>
+                                                </td>
+                                                <td class="text-right">
+                                                    <span t-field="l.price_unit"/>
+                                                </td>
+                                                <td class="text-right" groups="sale.group_show_price_subtotal">
+                                                    <span t-field="l.price_subtotal"
+                                                        t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                                </td>
+                                                <td class="text-right">
+                                                    <span t-field="l.purchase_price"/>
+                                                </td>
+                                                <td class="text-right">
+                                                    <t t-set="total" t-value="l.product_uom_qty * l.purchase_price"/>
+                                                    <span t-esc="total" />
+                                                </td>
+                                                <t t-foreach="layout_category['lines']" t-as="l">
+                                                    <t t-if="l.product_id.type in ['service']">
+                                                        <t t-set="total_ssell" t-value="total_ssell+l.purchase_price"/>
+                                                    </t>
+                                                </t>
+
+                                                <t t-foreach="layout_category['lines']" t-as="l">
+                                                    <t t-if="l.product_id.type in ['service']">
+                                                        <t t-set="total_sbuy" t-value="total_sbuy+l.price_subtotal"/>
+                                                    </t>
+                                                </t>
+                                            </tr>
+
+
+                                            <!-- <t t-if="(layout_category_size > 1 or page_size > 1) and layout_category['subtotal']" groups="sale.group_sale_layout">
+                                                <tr class="text-right">
+                                                    <td colspan="9">
+                                                        <strong>Subtotal:</strong>
+                                                        <t t-set="subtotal" t-value="sum(l.price_subtotal)"/>
+                                                        <span t-esc="subtotal" t-options="{'widget': 'monetary', 'display_currency': doc.pricelist_id.currency_id}"/>
+                                                    </td>
+                                                </tr>
+                                            </t> -->
+                                        </t>
+                                    </t>
+                                </t>
+                                <tr>
+
+
+                                    <td style="border-top: 1px solid;" colspan="3">
+
+                                    </td>
+                                    <td class="text-right" style="border-top: 1px solid;">
+                                        <span>Total Cost</span>
+                                    </td>
+                                    <td class="text-right" style="border-top: 1px solid;">
+
+
+                                        <span t-esc="total_ssell"/>
+                                    </td>
+                                    <td class="text-right" style="border-top: 1px solid;">
+
+                                    </td>
+                                    <td class="text-right" style="border-top: 1px solid;">
+
+                                        <span t-esc="total_sbuy"/>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </t>
+                </t>
+
+                <!-- <div class="clearfix">
+                    <div class="row" name="total">
+                        <div class="col-xs-4 pull-right">
+                            <table class="table table-condensed" style="min-width: 200px;max-width: 350px;">
+                                <tr class="border-black" style="border-bottom:1px solid #dddddd;">
+                                    <td>
+                                        <strong>Subtotal</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="doc.amount_untaxed"
+                                            t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                    </td>
+                                </tr>
+                                <t t-foreach="doc._get_tax_amount_by_group()" t-as="amount_by_group">
+                                    <tr style="border-bottom:1px solid #dddddd;">
+                                        <t t-if="amount_by_group[3] == 1 and doc.amount_untaxed == amount_by_group[2]">
+                                            <td>
+                                                <span t-esc="amount_by_group[0]"/>
+                                                <span>
+                                                    &amp;nbsp;
+                                                    <span>on</span>
+                                                    &amp;nbsp;
+                                                    <t t-esc="amount_by_group[2]" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                                </span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="amount_by_group[1]"
+                                                    t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                            </td>
+                                        </t>
+                                        <t t-else="">
+                                            <td>
+                                                <span t-esc="amount_by_group[0]"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="amount_by_group[1]"
+                                                    t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                </t>
+                                <tr class="border-black">
+                                    <td>
+                                        <strong>Total</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="doc.amount_total"
+                                            t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div> -->
+
+                <table style="border: none;width:100%">
+                    <tr>
+                        <td style="border: none;">
+                            Installation Advice
+                        </td>
+                        <td style="border: none;width:2%;">:</td>
+                        <td style="border: none;background-color:white;width:80%;">
+                            <strong t-field="doc.installation_terms"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: none;">
+                            Invoice Advice
+                        </td>
+                        <td style="border: none;width:2%;">:</td>
+                        <td style="border: none;background-color:white;width:80%;">
+                            <strong t-field="doc.invoice_advice"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: none;">
+                            Margin Value
+                        </td>
+                        <td style="border: none;width:2%;">:</td>
+                        <td style="border: none;background-color:white;width:80%;">
+                            <strong t-field="doc.margin"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: none;">
+                            Margin Percentage
+                        </td>
+                        <td style="border: none;width:2%;">:</td>
+                        <td style="border: none;background-color:white;width:80%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: none;">
+                            PO Advice
+                        </td>
+                        <td style="border: none;width:2%;">:</td>
+                        <td style="border: none;background-color:white;width:80%;">
+                            <strong t-field="doc.po_advice"/>
+                        </td>
+                    </tr>
+                </table>
+                <div class="oe_structure"/>
+            </div>
+        </t>
+    </template>
+
+
+    <template id="report_saleorder_opf">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="Quotation_Report.report_OPF" t-lang="doc.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>

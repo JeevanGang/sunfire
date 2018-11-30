@@ -1,0 +1,18 @@
+<odoo>
+<record id="traning_groups" model="ir.module.category">
+			<field name="name">Sunfire Training</field>
+			<field name="sequence">2</field>
+		</record>
+		<record id="traning_groups_admin" model="res.groups">
+			<field name="name">admin</field>
+			<field name="category_id" ref="traning_groups" />
+		</record>
+		<record id="traning_groups_manager" model="res.groups">
+			<field name="name">manager</field>
+			<field name="category_id" ref="traning_groups" />
+		</record>
+		<record id="traning_groups_user" model="res.groups">
+			<field name="name">user</field>
+			<field name="category_id" ref="traning_groups" />
+		</record>
+</odoo>

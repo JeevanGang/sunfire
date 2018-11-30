@@ -1,0 +1,165 @@
+<odoo>
+  <data>
+    <!-- model.name form view -->
+    <record id="model_name_view_form" model="ir.ui.view">
+      <field name="name">traningdemo_info.view.form</field>
+      <field name="model">traningdemo.info</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <header>
+            <button type="object" name="get_nomine" string="Self Nominate"/>
+            <button type="object" name="get_withdraw" string="Self Withdraw" confirm="Are you sure you want to Withdraw your name?" />
+          </header>
+          <sheet>
+            <group>
+              <group>
+                <field name="traning_title"/>
+                <field name="from_date"/>
+                <field name="to_date"/>
+                <field name="duration" />
+                <field name="traning_method" attrs="{'required':[('release','=','yes')]}"/>
+                <field name="learning" attrs="{'required':[('release','=','yes')]}"/>
+                <field name = "certification" widget="radio"/>
+              </group>
+              <group>
+                <field name="job_impact" attrs="{'required':[('release','=','yes')]}"/>
+                <field name="business_impact" attrs="{'required':[('release','=','yes')]}"/>
+                <field name="certification_completed" attrs="{'required':[('release','=','yes')]}"/>
+                <field name="cost_of_traning" widget='monetary' attrs="{'required':[('release','=','yes')]}"/>
+                <field name="vendor" options="{'no_quick_create':True,'no_create_edit':True,'no_open':True}" domain="[('supplier','=',True)]" attrs="{'required':[('release','=','yes')]}"/>
+                <field name="traning_by" attrs="{'required':[('release','=','yes')]}"/>
+                <field name="date_certificate_tobeuploaded" attrs="{'invisible':[('certification','=','no')],'required':[('release','=','yes')]}"/>
+                <field name = "release" widget="radio" />
+
+              </group>
+            </group>
+            <notebook>
+              <page string="To Be Approved" mode='tree'>
+                <field name="traningdemo_line">
+                  <tree editable="bottom">
+                    <field name="user_id"/>
+                    <field name="approved_flag" attrs="{'invisible' :['|', ('state','in',['withdraw','waiting','reject'])]}"/>
+                    <field name="withdraw_flag" attrs="{'invisible' :['|', ('state','in',['approved','waiting','reject'])]}"/>
+                    <field name="waiting_flag" attrs="{'invisible' :['|', ('state','in',['approved','withdraw','reject'])]}" />
+                    <field name="reject_flag" attrs="{'invisible' :['|', ('state','in',['approved','withdraw','waiting'])]}"/>
+                    <field name="state" invisible="1"/>
+                  </tree>
+                </field>
+              </page>
+              <page string="Approved" mode='tree' create='false' edit='false' >
+                <field name="traningdemo_line_approved" mode="tree">
+                  <tree editable="bottom" create='false' edit='false'>
+                    <field name="user_id"/>
+                    <field name="approved_flag" attrs="{'invisible' :['|', ('state','in',['withdraw','waiting','reject'])]}"/>
+                    <field name="withdraw_flag" attrs="{'invisible' :['|', ('state','in',['approved','waiting','reject'])]}"/>
+                    <field name="waiting_flag" attrs="{'invisible' :['|', ('state','in',['approved','withdraw','reject'])]}" />
+                    <field name="reject_flag" attrs="{'invisible' :['|', ('state','in',['approved','withdraw','waiting'])]}"/>
+                    <field name="state" invisible="1"/>
+                  </tree>
+                </field>
+              </page>
+              <page string="Withdraw" mode='tree' create='false'>
+                <field name="traningdemo_line_withdraw" mode="tree">
+                  <tree editable="bottom" create='false' edit='false'>
+                    <field name="user_id"/>
+                    <field name="approved_flag" attrs="{'invisible' :['|', ('state','in',['withdraw','waiting','reject'])]}"/>
+                    <field name="withdraw_flag" attrs="{'invisible' :['|', ('state','in',['approved','waiting','reject'])]}"/>
+                    <field name="waiting_flag" attrs="{'invisible' :['|', ('state','in',['approved','withdraw','reject'])]}" />
+                    <field name="reject_flag" attrs="{'invisible' :['|', ('state','in',['approved','withdraw','waiting'])]}"/>
+                    <field name="state" invisible="1"/>
+                  </tree>
+                </field>
+              </page>
+              <page string="Waiting" mode='tree' create='false'>
+                <field name="traningdemo_line_waiting" mode="tree">
+                  <tree editable="bottom" create='false' edit='false'>
+                    <field name="user_id"/>
+                    <field name="approved_flag" attrs="{'invisible' :['|', ('state','in',['withdraw','waiting','reject'])]}"/>
+                    <field name="withdraw_flag" attrs="{'invisible' :['|', ('state','in',['approved','waiting','reject'])]}"/>
+                    <field name="waiting_flag" attrs="{'invisible' :['|', ('state','in',['approved','withdraw','reject'])]}" />
+                    <field name="reject_flag" attrs="{'invisible' :['|', ('state','in',['approved','withdraw','waiting'])]}"/>
+                    <field name="state" invisible="1"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <!-- model.name tree view -->
+    <record id="model_name_view_tree" model="ir.ui.view">
+      <field name="name">traningdemo_info.view.tree</field>
+      <field name="model">traningdemo.info</field>
+      <field name="arch" type="xml">
+        <tree >
+          <!-- Add your fields here -->
+          <field name="traning_title"/>
+          <field name="from_date"/>
+          <field name="to_date"/>
+          <field name="duration"/>
+          <field name="traning_method"/>
+          <field name="learning"/>
+          <field name="job_impact"/>
+          <field name="business_impact"/>
+          <field name="certification_completed"/>
+          <field name="cost_of_traning" widget='monetary'/>
+          <field name="vendor" options="{'no_quick_create':True,'no_create_edit':True,'no_open':True}" domain="[('supplier','=',True)]"/>
+          <field name="traning_by"/>
+          <field name = "certification" widget="radio"/>
+          <field name="date_certificate_tobeuploaded"/>
+          <field name="release" widget="radio"/>
+
+
+        </tree>
+      </field>
+    </record>
+    <!-- model.name search view -->
+    <record id="traningdemo_info_view_search" model="ir.ui.view">
+      <field name="name">traningdemo_info.view.search</field>
+      <field name="model">traningdemo.info</field>
+      <field name="arch" type="xml">
+        <search string="Search Description">
+          <!-- Add your fields here -->
+          <field name="traning_title"/>
+          <field name="from_date"/>
+          <field name="to_date"/>
+          <field name="duration"/>
+          <field name="traning_method"/>
+          <field name="learning"/>
+          <field name="job_impact"/>
+          <field name="business_impact"/>
+          <field name="certification_completed"/>
+          <field name="cost_of_traning" widget='monetary'/>
+          <field name="vendor"/>
+          <field name="traning_by"/>
+          <field name = "certification" widget="radio"/>
+          <field name="date_certificate_tobeuploaded"/>
+          <field name="release" widget="radio"/>
+
+        </search>
+      </field>
+    </record>
+
+    <!-- model.name action window -->
+    <record id="model_name_action" model="ir.actions.act_window">
+      <field name="name">View All Trainings</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">traningdemo.info</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          <!-- Add Text Here -->
+        </p>
+        <p>
+          <!-- More details about what a user can do with this object will be OK -->
+        </p>
+      </field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="traningdemo_menu" name="Traning" sequence="1"/>
+    <menuitem id="traningdemo_submenu" name="Traning Seminar" parent="traningdemo_menu" action="model_name_action" sequence="1"/>
+  </data>
+</odoo>

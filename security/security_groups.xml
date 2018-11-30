@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <record id="sunfire_timesheet_menu" model="res.groups">
+			<field name="name">Enable Timesheet Main Menu</field>
+			<field name="category_id" ref="sunfire_sales.sale_test_main_user"/>
+		</record>
+		
+		<record id="sunfire_timesheet_master_menu" model="ir.ui.menu">
+			<field name="groups_id" eval="[(6,0,[ref('sunfire_timesheet_menu')])]"/>
+		</record>
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- res_partner inherit form view -->
+        <record id="res_parner_form_inhe_098" model="ir.ui.view">
+            <field name="name">res_partner.inherit.view.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='vat']" position="replace">
+                    <field name="vat" placeholder="Jeevan" />
+                </xpath>
+
+            </field>
+        </record>
+        <!-- res_partner inherit tree view -->
+        <record id="res_partner_tree_inherit_098" model="ir.ui.view">
+            <field name="name">res_partner.inherit.view.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="replace">
+                    <tree default_order="create_date desc">
+                        <field name="name"/>
+                        <field name="mobile"/>
+                        <field name="city"/>
+                        <field name="state_id"/>
+                        <field name="vat"/>
+                    </tree>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
